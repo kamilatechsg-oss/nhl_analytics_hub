@@ -61,3 +61,5 @@ streamlit run app/app.py
 - **Game Results** — browse games, filterable by team and game state
 - **Leaderboards** — top scorers, penalty minutes, save %, and wins
 - **SQL Query** — run custom SQL queries against the database, with pre-built examples
+
+**Repository:** https://github.com/kamilatechsg-oss/nhl_analytics_hub
