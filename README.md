@@ -31,15 +31,15 @@ nhl_analytics_hub/
 ```bash
 brew install postgresql@16
 brew services start postgresql@16
-psql -U <kamila> -h localhost -d postgres -c "CREATE DATABASE nhl_analytics;"
+psql -U <your_user> -h localhost -d postgres -c "CREATE DATABASE nhl_analytics;"
 ```
 ### 1b. Set database credentials
 
 Create a `.env` file in the project folder (it is git-ignored, so the password is never pushed):
 
 ```
-DB_USER=kamila
-DB_PASSWORD=1234
+DB_USER=your_postgres_user
+DB_PASSWORD=your_password
 DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=nhl_analytics
