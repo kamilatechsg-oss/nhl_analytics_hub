@@ -31,7 +31,7 @@ nhl_analytics_hub/
 ```bash
 brew install postgresql@16
 brew services start postgresql@16
-psql -U <your_user> -h localhost -d postgres -c "CREATE DATABASE nhl_analytics;"
+psql -U <kamila> -h localhost -d postgres -c "CREATE DATABASE nhl_analytics;"
 ```
 ### 1b. Set database credentials
 
