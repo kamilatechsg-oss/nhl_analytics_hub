@@ -6,6 +6,23 @@ API-driven hockey data pipeline: NHL public API → PostgreSQL → SQL analysis 
 **Connector library:** psycopg2 (data loading) + SQLAlchemy (Streamlit app)
 
 ## Project Structure
+```
+nhl_analytics_hub/
+├── app/
+│   └── app.py                    # Streamlit dashboard (7 pages)
+├── data/
+│   ├── game_stats.json           # per-game player stats (provided dataset)
+│   ├── skater_season_stats.json  # skater season stats (provided dataset)
+│   └── goalie_season_stats.json  # goalie season stats (provided dataset)
+├── notebooks/
+│   └── 01_data_collection.ipynb  # NHL API fetch + create tables + load PostgreSQL
+├── sql/
+│   ├── schema.sql                # table definitions (PK/FK)
+│   └── analysis_queries.sql      # SQL analysis queries
+├── .env                          # database credentials (not in repo, git-ignored)
+├── requirements.txt
+└── README.md
+```
 
 ## Setup
 
@@ -16,7 +33,17 @@ brew install postgresql@16
 brew services start postgresql@16
 psql -U <your_user> -h localhost -d postgres -c "CREATE DATABASE nhl_analytics;"
 ```
+### 1b. Set database credentials
 
+Create a `.env` file in the project folder (it is git-ignored, so the password is never pushed):
+
+```
+DB_USER=kamila
+DB_PASSWORD=1234
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=nhl_analytics
+```
 ### 2. Install Python dependencies
 
 ```bash

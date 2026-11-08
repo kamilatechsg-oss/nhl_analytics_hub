@@ -3,8 +3,15 @@ import pandas as pd
 from sqlalchemy import create_engine
 from streamlit_option_menu import option_menu
 
-# create the connection
-engine = create_engine("postgresql://kamila:1234@localhost:5432/nhl_analytics")
+# create the connection (credentials are read from the .env file)
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+engine = create_engine(
+    f"postgresql://{os.getenv('DB_USER')}:{os.getenv('DB_PASSWORD')}"
+    f"@{os.getenv('DB_HOST', 'localhost')}:{os.getenv('DB_PORT', '5432')}/{os.getenv('DB_NAME')}"
+)
 
 with st.sidebar:
     page = option_menu(
